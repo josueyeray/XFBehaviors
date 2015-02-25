@@ -36,6 +36,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Base\AnimationBaseBehavior.cs" />
     <Compile Include="Behaviors\FadeInBehavior.cs" />
     <Compile Include="Enums\EventTypeEnumerator.cs" />
     <Compile Include="Triggers\InvokeCommandAction.cs" />
