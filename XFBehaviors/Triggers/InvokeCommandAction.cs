@@ -9,8 +9,14 @@
     using System.Windows.Input;
     using Xamarin.Forms;
 
+    /// <summary>
+    /// Allows to invoke a command from XAML on non button derived controls.
+    /// </summary>
     public class InvokeCommandAction : TriggerAction<View>
     {
+        /// <summary>
+        /// Class for command definition
+        /// </summary>
         public InvokeCommandBinding CommandBinding { get; set; }
 
         protected override void Invoke(View sender)

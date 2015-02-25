@@ -13,6 +13,9 @@
     {
         private INavigation navService;
 
+        /// <summary>
+        /// Class for target page definition
+        /// </summary>
         public NavigateToPageBinding TargetPageBinding { get; set; }
 
         protected override async void Invoke(View sender)
