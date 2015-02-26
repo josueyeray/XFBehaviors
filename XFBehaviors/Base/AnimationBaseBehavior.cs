@@ -12,7 +12,6 @@
     {
         private static readonly BindableProperty DurationProperty = BindableProperty.Create<AnimationBaseBehavior, int>(a => a.Duration, 250);
         private static readonly BindableProperty OnEventProperty = BindableProperty.Create<AnimationBaseBehavior, EventTypeEnumerator>(a => a.OnEvent, EventTypeEnumerator.Attached);
-        private static readonly BindableProperty WaitToEndProperty = BindableProperty.Create<AnimationBaseBehavior, bool>(a => a.WaitToEnd, false);
         private static readonly BindableProperty EasingMethodProperty = BindableProperty.Create<AnimationBaseBehavior, Easing>(a => a.EasingMethod, Easing.Linear);
 
         /// <summary>
@@ -34,15 +33,6 @@
         }
 
         /// <summary>
-        /// Wait until animation ends, default: false
-        /// </summary>
-        public bool WaitToEnd
-        {
-            get { return (bool)GetValue(WaitToEndProperty); }
-            set { SetValue(WaitToEndProperty, value); }
-        }
-
-        /// <summary>
         /// Easing function to apply to animation, default: Linear
         /// </summary>
         public Easing EasingMethod
@@ -50,5 +40,69 @@
             get { return (Easing)GetValue(EasingMethodProperty); }
             set { SetValue(EasingMethodProperty, value); }
         }
+
+        protected override void OnAttachedTo(View element)
+        {
+            base.OnAttachedTo(element);
+
+            switch (OnEvent)
+            {
+                case EventTypeEnumerator.Focused:
+                    element.Focused += ElementEvent;
+                    break;
+                case EventTypeEnumerator.Unfocused:
+                    element.Unfocused += ElementEvent;
+                    break;
+                case EventTypeEnumerator.ChildAdded:
+                    element.ChildAdded += ElementEvent;
+                    break;
+                case EventTypeEnumerator.ChildRemoved:
+                    element.ChildRemoved += ElementEvent;
+                    break;
+                case EventTypeEnumerator.Attached:
+                    DoAnimation(element);
+                    break;
+                case EventTypeEnumerator.Detaching:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        protected override void OnDetachingFrom(View element)
+        {
+            base.OnDetachingFrom(element);
+
+            switch (OnEvent)
+            {
+                case EventTypeEnumerator.Focused:
+                    element.Focused -= ElementEvent;
+                    break;
+                case EventTypeEnumerator.Unfocused:
+                    element.Unfocused -= ElementEvent;
+                    break;
+                case EventTypeEnumerator.ChildAdded:
+                    element.ChildAdded -= ElementEvent;
+                    break;
+                case EventTypeEnumerator.ChildRemoved:
+                    element.ChildRemoved -= ElementEvent;
+                    break;
+                case EventTypeEnumerator.Attached:
+                    break;
+                case EventTypeEnumerator.Detaching:
+                    DoAnimation(element);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        protected virtual Task DoAnimation(View element) { return null; }
+
+        private void ElementEvent(object sender, EventArgs e)
+        {
+            DoAnimation((sender as View));
+        }
+
     }
 }

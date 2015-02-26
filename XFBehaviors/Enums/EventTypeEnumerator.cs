@@ -39,6 +39,6 @@ namespace XFBehaviors.Enums
         /// <summary>
         /// Behavior is dettaching from view.
         /// </summary>
-        Dettaching
+        Detaching
     }
 }
