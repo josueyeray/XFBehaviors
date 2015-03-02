@@ -47,19 +47,19 @@
             switch (Axis)
             {
                 case RotationAxisEnumerator.X:
-                    await element.RotateXTo(FinalAngle, (uint)Duration, EasingMethod);
+                    await element.RotateXTo(FinalAngle, (uint)Duration, GetEasingMethodFromEnumerator());
                     break;
                 case RotationAxisEnumerator.Y:
-                    await element.RotateYTo(FinalAngle, (uint)Duration, EasingMethod);
+                    await element.RotateYTo(FinalAngle, (uint)Duration, GetEasingMethodFromEnumerator());
                     break;
                 case RotationAxisEnumerator.Z:
                     if (IsRelative)
                     {
-                        await element.RelRotateTo(FinalAngle, (uint)Duration, EasingMethod);
+                        await element.RelRotateTo(FinalAngle, (uint)Duration, GetEasingMethodFromEnumerator());
                     }
                     else
                     {
-                        await element.RotateTo(FinalAngle, (uint)Duration, EasingMethod);
+                        await element.RotateTo(FinalAngle, (uint)Duration, GetEasingMethodFromEnumerator());
                     }
                     break;
                 default:

@@ -24,7 +24,7 @@
 
         protected override async Task DoAnimation(View element)
         {
-            await element.FadeTo(FinalOpacity, (uint)Duration, EasingMethod);
+            await element.FadeTo(FinalOpacity, (uint)Duration, GetEasingMethodFromEnumerator());
         }
     }
 }

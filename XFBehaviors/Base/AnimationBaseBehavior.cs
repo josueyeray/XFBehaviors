@@ -10,9 +10,10 @@
 
     public class AnimationBaseBehavior : Behavior<View>
     {
-        private static readonly BindableProperty DurationProperty = BindableProperty.Create<AnimationBaseBehavior, int>(a => a.Duration, 250);
+        private static readonly BindableProperty DurationProperty = 
+            BindableProperty.Create<AnimationBaseBehavior, int>(a => a.Duration, 250);
         private static readonly BindableProperty OnEventProperty = BindableProperty.Create<AnimationBaseBehavior, EventTypeEnumerator>(a => a.OnEvent, EventTypeEnumerator.Attached);
-        private static readonly BindableProperty EasingMethodProperty = BindableProperty.Create<AnimationBaseBehavior, Easing>(a => a.EasingMethod, Easing.Linear);
+        private static readonly BindableProperty EasingMethodProperty = BindableProperty.Create<AnimationBaseBehavior, EasingMethodEnumerator>(a => a.EasingMethod, EasingMethodEnumerator.Linear);
 
         /// <summary>
         /// Animation duration in milliseconds, default: 250ms
@@ -35,9 +36,9 @@
         /// <summary>
         /// Easing function to apply to animation, default: Linear
         /// </summary>
-        public Easing EasingMethod
+        public EasingMethodEnumerator EasingMethod
         {
-            get { return (Easing)GetValue(EasingMethodProperty); }
+            get { return (EasingMethodEnumerator)GetValue(EasingMethodProperty); }
             set { SetValue(EasingMethodProperty, value); }
         }
 
@@ -98,6 +99,37 @@
         }
 
         protected virtual Task DoAnimation(View element) { return null; }
+
+        protected Easing GetEasingMethodFromEnumerator()
+        {
+            switch (EasingMethod)
+            {
+                case EasingMethodEnumerator.BounceIn:
+                    return Easing.BounceIn;
+                case EasingMethodEnumerator.BounceOut:
+                    return Easing.BounceOut;
+                case EasingMethodEnumerator.CubicIn:
+                    return Easing.CubicIn;
+                case EasingMethodEnumerator.CubicOut:
+                    return Easing.CubicOut;
+                case EasingMethodEnumerator.CubicInOut:
+                    return Easing.CubicInOut;
+                case EasingMethodEnumerator.Linear:
+                    return Easing.Linear;
+                case EasingMethodEnumerator.SinIn:
+                    return Easing.SinIn;
+                case EasingMethodEnumerator.SinOut:
+                    return Easing.SinOut;
+                case EasingMethodEnumerator.SinInOut:
+                    return Easing.SinInOut;
+                case EasingMethodEnumerator.SpringIn:
+                    return Easing.SpringIn;
+                case EasingMethodEnumerator.SpringOut:
+                    return Easing.SpringOut;
+                default:
+                    return Easing.Linear;
+            }
+        }
 
         private void ElementEvent(object sender, EventArgs e)
         {

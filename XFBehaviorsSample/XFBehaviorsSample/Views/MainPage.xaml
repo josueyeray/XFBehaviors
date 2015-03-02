@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xfbehaviors="clr-namespace:XFBehaviors.Behaviors;assembly=XFBehaviors"
+             xmlns:xftriggers="clr-namespace:XFBehaviors.Triggers;assembly=XFBehaviors"
+             x:Class="XFBehaviorsSample.Views.MainPage">
+  <ScrollView>
+    <StackLayout VerticalOptions="CenterAndExpand">
+      <!-- FadeBehavior -->
+      <Entry Text="Fade in/out sample" Opacity="0" HorizontalOptions="Center">
+        <Entry.Behaviors>
+          <xfbehaviors:FadeBehavior FinalOpacity="0.5" Duration="3000" OnEvent="Attached" EasingMethod="CubicIn"/>
+          <xfbehaviors:FadeBehavior FinalOpacity="1" Duration="250" OnEvent="Focused"/>
+          <xfbehaviors:FadeBehavior FinalOpacity="0.5" Duration="250" OnEvent="Unfocused"/>
+        </Entry.Behaviors>
+      </Entry>
+
+      <!-- ScaleBehavior -->
+      <Button Text="Scale sample" Opacity="1" HorizontalOptions="Center">
+        <Button.Behaviors>
+          <xfbehaviors:ScaleBehavior FinalScale="0.2" IsRelative="true" Duration="3000" OnEvent="Attached"/>
+          <xfbehaviors:ScaleBehavior FinalScale="1.5" Duration="250" OnEvent="Focused"/>
+          <xfbehaviors:ScaleBehavior FinalScale="1" Duration="250" OnEvent="Unfocused"/>
+        </Button.Behaviors>
+      </Button>
+
+      <!-- RotateBehavior Axis X -->
+      <BoxView WidthRequest="200" HeightRequest="200" BackgroundColor="Blue" HorizontalOptions="Center">
+        <BoxView.Behaviors>
+          <xfbehaviors:RotateBehavior FinalAngle="720" Duration="6000" OnEvent="Attached" Axis="X"/>
+        </BoxView.Behaviors>
+      </BoxView>
+      <!-- RotateBehavior Axis Y -->
+      <BoxView WidthRequest="200" HeightRequest="200" BackgroundColor="Red" HorizontalOptions="Center">
+        <BoxView.Behaviors>
+          <xfbehaviors:RotateBehavior FinalAngle="720" Duration="6000" OnEvent="Attached" Axis="Y"/>
+        </BoxView.Behaviors>
+      </BoxView>
+      <!-- RotateBehavior Axis Z -->
+      <BoxView WidthRequest="200" HeightRequest="200" BackgroundColor="Green" HorizontalOptions="Center">
+        <BoxView.Behaviors>
+          <xfbehaviors:RotateBehavior FinalAngle="720" Duration="6000" OnEvent="Attached" Axis="Z"/>
+        </BoxView.Behaviors>
+      </BoxView>
+
+      <!-- NavigateToPageAction -->
+      <Button Text="Navigate to second view" Opacity="1" HorizontalOptions="Center">
+        <Button.Triggers>
+          <EventTrigger Event="Clicked">
+            <xftriggers:NavigateToPageAction>
+              <xftriggers:NavigateToPageAction.TargetPageBinding>
+                <xftriggers:NavigateToPageBinding TargetPage="XFBehaviorsSample.Views.SecondView, XFBehaviorsSample"/>
+              </xftriggers:NavigateToPageAction.TargetPageBinding>
+            </xftriggers:NavigateToPageAction>
+          </EventTrigger>
+        </Button.Triggers>
+      </Button>
+      
+    </StackLayout>
+  </ScrollView>
+
+
+</ContentPage>

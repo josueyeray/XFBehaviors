@@ -40,6 +40,7 @@
     <Compile Include="Behaviors\RotateBehavior.cs" />
     <Compile Include="Behaviors\ScaleBehavior.cs" />
     <Compile Include="Behaviors\FadeBehavior.cs" />
+    <Compile Include="Enums\EasingMethodEnumerator.cs" />
     <Compile Include="Enums\RotationAxisEnumerator.cs" />
     <Compile Include="Enums\EventTypeEnumerator.cs" />
     <Compile Include="Triggers\InvokeCommandAction.cs" />

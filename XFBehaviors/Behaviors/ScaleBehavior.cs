@@ -36,11 +36,11 @@
         {
             if (IsRelative)
             {
-                await element.RelScaleTo(FinalScale, (uint)Duration, EasingMethod);
+                await element.RelScaleTo(FinalScale, (uint)Duration, GetEasingMethodFromEnumerator());
             }
             else
             {
-                await element.ScaleTo(FinalScale, (uint)Duration, EasingMethod);
+                await element.ScaleTo(FinalScale, (uint)Duration, GetEasingMethodFromEnumerator());
             }
         }
     }
