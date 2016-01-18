@@ -16,13 +16,13 @@
       </Entry>
 
       <!-- ScaleBehavior -->
-      <Button Text="Scale sample" Opacity="1" HorizontalOptions="Center">
-        <Button.Behaviors>
-          <xfbehaviors:ScaleBehavior FinalScale="0.2" IsRelative="true" Duration="3000" OnEvent="Attached"/>
+      <Entry Text="Scale sample" Opacity="1" HorizontalOptions="Center">
+        <Entry.Behaviors>
+          <xfbehaviors:ScaleBehavior FinalScale="0.2" Duration="3000" OnEvent="Attached"/>
           <xfbehaviors:ScaleBehavior FinalScale="1.5" Duration="250" OnEvent="Focused"/>
           <xfbehaviors:ScaleBehavior FinalScale="1" Duration="250" OnEvent="Unfocused"/>
-        </Button.Behaviors>
-      </Button>
+        </Entry.Behaviors>
+    </Entry>
 
       <!-- RotateBehavior Axis X -->
       <BoxView WidthRequest="200" HeightRequest="200" BackgroundColor="Blue" HorizontalOptions="Center">
@@ -55,9 +55,7 @@
           </EventTrigger>
         </Button.Triggers>
       </Button>
-      
+
     </StackLayout>
   </ScrollView>
-
-
 </ContentPage>
