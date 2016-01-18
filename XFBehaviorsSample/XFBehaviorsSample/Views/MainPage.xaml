@@ -22,7 +22,7 @@
           <xfbehaviors:ScaleBehavior FinalScale="1.5" Duration="250" OnEvent="Focused"/>
           <xfbehaviors:ScaleBehavior FinalScale="1" Duration="250" OnEvent="Unfocused"/>
         </Entry.Behaviors>
-    </Entry>
+      </Entry>
 
       <!-- RotateBehavior Axis X -->
       <BoxView WidthRequest="200" HeightRequest="200" BackgroundColor="Blue" HorizontalOptions="Center">
@@ -55,6 +55,19 @@
           </EventTrigger>
         </Button.Triggers>
       </Button>
+
+      <!-- Invoke command on tap -->
+      <BoxView WidthRequest="200" HeightRequest="200" BackgroundColor="Yellow" HorizontalOptions="Center">
+        <BoxView.Triggers>
+          <EventTrigger Event="Clicked">
+            <xftriggers:InvokeCommandAction>
+              <xftriggers:InvokeCommandAction.CommandBinding>
+                <xftriggers:InvokeCommandBinding Command="{Binding MyCommand}"/>
+              </xftriggers:InvokeCommandAction.CommandBinding>
+            </xftriggers:InvokeCommandAction>
+          </EventTrigger>
+        </BoxView.Triggers>
+      </BoxView>
 
     </StackLayout>
   </ScrollView>

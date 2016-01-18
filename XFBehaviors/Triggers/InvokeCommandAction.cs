@@ -23,17 +23,17 @@
         {
             if (CommandBinding == null)
             {
-                Debug.WriteLine("InvokeCommandAction.CommandBase is null");
+                Debug.WriteLine("InvokeCommandAction.CommandBinding is null");
                 return;
             }
             if (CommandBinding.Command == null)
             {
-                Debug.WriteLine("InvokeCommandAction.CommandBase is null");
+                Debug.WriteLine("InvokeCommandAction.CommandBinding.Command is null");
                 return;
             }
             if (!CommandBinding.Command.CanExecute(CommandBinding.CommandParameter))
             {
-                Debug.WriteLine("InvokeCommandAction.CommandBase.Command.CanExecute returns false");
+                Debug.WriteLine("InvokeCommandAction.CommandBinding.Command.CanExecute returns false");
                 return;
             }
 
@@ -46,8 +46,8 @@
     /// </summary>
     public class InvokeCommandBinding : BindableObject
     {
-        private static readonly BindableProperty CommandProperty = BindableProperty.Create<InvokeCommandBinding, ICommand>(p => p.Command, null);
-        private static readonly BindableProperty CommandParameterProperty = BindableProperty.Create<InvokeCommandBinding, object>(p => p.CommandParameter, null);
+        public static readonly BindableProperty CommandProperty = BindableProperty.Create<InvokeCommandBinding, ICommand>(p => p.Command, null);
+        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create<InvokeCommandBinding, object>(p => p.CommandParameter, null);
 
         /// <summary>
         /// Command to be invoked.

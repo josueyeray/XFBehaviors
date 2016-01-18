@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using XFBehaviorsSample.ViewModels;
 
 namespace XFBehaviorsSample.Views
 {
@@ -13,6 +14,8 @@ namespace XFBehaviorsSample.Views
         public MainPage()
         {
             InitializeComponent();
+
+            this.BindingContext = new MainViewModel();
         }
     }
 }
