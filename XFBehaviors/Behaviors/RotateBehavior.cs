@@ -11,9 +11,9 @@
 
     public class RotateBehavior : AnimationBaseBehavior
     {
-        private static readonly BindableProperty FinalAngleProperty = BindableProperty.Create<RotateBehavior, double>(a => a.FinalAngle, 45);
-        private static readonly BindableProperty IsRelativeProperty = BindableProperty.Create<RotateBehavior, bool>(a => a.IsRelative, false);
-        private static readonly BindableProperty AxisProperty = BindableProperty.Create<RotateBehavior, RotationAxisEnumerator>(a => a.Axis, RotationAxisEnumerator.Z);
+        public static BindableProperty FinalAngleProperty = BindableProperty.Create<RotateBehavior, double>(a => a.FinalAngle, 45);
+        public static BindableProperty IsRelativeProperty = BindableProperty.Create<RotateBehavior, bool>(a => a.IsRelative, false);
+        public static BindableProperty AxisProperty = BindableProperty.Create<RotateBehavior, RotationAxisEnumerator>(a => a.Axis, RotationAxisEnumerator.Z);
 
         /// <summary>
         /// Final angle, default: 45

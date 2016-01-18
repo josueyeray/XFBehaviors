@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xfbehaviors="clr-namespace:XFBehaviors.Behaviors;assembly=XFBehaviors"
              xmlns:xftriggers="clr-namespace:XFBehaviors.Triggers;assembly=XFBehaviors"
+             x:Name="contentPage"
              x:Class="XFBehaviorsSample.Views.MainPage">
   <ScrollView>
     <StackLayout VerticalOptions="CenterAndExpand">
@@ -56,18 +57,18 @@
         </Button.Triggers>
       </Button>
 
-      <!-- Invoke command on tap -->
-      <BoxView WidthRequest="200" HeightRequest="200" BackgroundColor="Yellow" HorizontalOptions="Center">
-        <BoxView.Triggers>
-          <EventTrigger Event="Clicked">
+      <!-- Invoke command on text changed -->
+      <Entry Text="Change text to invoke command" Opacity="1" HorizontalOptions="Center">
+        <Entry.Triggers>
+          <EventTrigger Event="TextChanged">
             <xftriggers:InvokeCommandAction>
               <xftriggers:InvokeCommandAction.CommandBinding>
-                <xftriggers:InvokeCommandBinding Command="{Binding MyCommand}"/>
+                <xftriggers:InvokeCommandBinding Command="{Binding BindingContext.MyCommand, Mode=TwoWay, Source={x:Reference contentPage}}"/>
               </xftriggers:InvokeCommandAction.CommandBinding>
             </xftriggers:InvokeCommandAction>
           </EventTrigger>
-        </BoxView.Triggers>
-      </BoxView>
+        </Entry.Triggers>
+    </Entry>
 
     </StackLayout>
   </ScrollView>

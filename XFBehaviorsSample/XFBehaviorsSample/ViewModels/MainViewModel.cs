@@ -19,7 +19,10 @@
         /// <summary>
         /// My Command
         /// </summary>
-        public Command MyCommand => this.myCommand;
+        public ICommand MyCommand
+        {
+            get { return this.myCommand; }
+        }
 
         private void MyCommandExecute()
         {

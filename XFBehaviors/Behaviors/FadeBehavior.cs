@@ -11,7 +11,7 @@
 
     public class FadeBehavior : AnimationBaseBehavior
     {
-        private static readonly BindableProperty FinalOpacityProperty = BindableProperty.Create<FadeBehavior, double>(a => a.FinalOpacity, 1);
+        public static BindableProperty FinalOpacityProperty = BindableProperty.Create<FadeBehavior, double>(a => a.FinalOpacity, 1);
 
         /// <summary>
         /// Final opacity, default: 1

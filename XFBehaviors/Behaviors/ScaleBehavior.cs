@@ -11,8 +11,8 @@
 
     public class ScaleBehavior : AnimationBaseBehavior
     {
-        private static readonly BindableProperty FinalScaleProperty = BindableProperty.Create<ScaleBehavior, double>(a => a.FinalScale, 1);
-        private static readonly BindableProperty IsRelativeProperty = BindableProperty.Create<ScaleBehavior, bool>(a => a.IsRelative, false);
+        public static BindableProperty FinalScaleProperty = BindableProperty.Create<ScaleBehavior, double>(a => a.FinalScale, 1);
+        public static BindableProperty IsRelativeProperty = BindableProperty.Create<ScaleBehavior, bool>(a => a.IsRelative, false);
 
         /// <summary>
         /// Final scale, default: 1

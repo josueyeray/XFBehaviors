@@ -48,7 +48,7 @@
     /// </summary>
     public class NavigateToPageBinding : BindableObject
     {
-        private static readonly BindableProperty TargetPageProperty = BindableProperty.Create<NavigateToPageBinding, string>(p => p.TargetPage, null);
+        public static BindableProperty TargetPageProperty = BindableProperty.Create<NavigateToPageBinding, string>(p => p.TargetPage, null, BindingMode.TwoWay);
 
         /// <summary>
         /// Full qualified name of the target page.

@@ -46,8 +46,8 @@
     /// </summary>
     public class InvokeCommandBinding : BindableObject
     {
-        public static readonly BindableProperty CommandProperty = BindableProperty.Create<InvokeCommandBinding, ICommand>(p => p.Command, null);
-        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create<InvokeCommandBinding, object>(p => p.CommandParameter, null);
+        public static BindableProperty CommandProperty = BindableProperty.Create<InvokeCommandBinding, ICommand>(p => p.Command, null, BindingMode.TwoWay);
+        public static BindableProperty CommandParameterProperty = BindableProperty.Create<InvokeCommandBinding, object>(p => p.CommandParameter, null, BindingMode.TwoWay);
 
         /// <summary>
         /// Command to be invoked.
