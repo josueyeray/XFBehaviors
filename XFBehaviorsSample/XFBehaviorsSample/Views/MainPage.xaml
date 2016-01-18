@@ -63,12 +63,14 @@
           <EventTrigger Event="TextChanged">
             <xftriggers:InvokeCommandAction>
               <xftriggers:InvokeCommandAction.CommandBinding>
-                <xftriggers:InvokeCommandBinding Command="{Binding BindingContext.MyCommand, Mode=TwoWay, Source={x:Reference contentPage}}"/>
+                <xftriggers:InvokeCommandBinding Command="{Binding BindingContext.MyCommand, 
+                                                                   Mode=TwoWay, 
+                                                                   Source={x:Reference contentPage}}"/>
               </xftriggers:InvokeCommandAction.CommandBinding>
             </xftriggers:InvokeCommandAction>
           </EventTrigger>
         </Entry.Triggers>
-    </Entry>
+      </Entry>
 
     </StackLayout>
   </ScrollView>
