@@ -13,6 +13,7 @@ namespace XFBehaviorsSample
         public App()
         {
             // The root page of your application
+            XFBehaviors.XFBehaviors.Init();
             MainPage = new NavigationPage(new MainPage());
         }
 
