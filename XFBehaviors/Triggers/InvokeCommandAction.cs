@@ -1,11 +1,6 @@
 ﻿namespace XFBehaviors.Triggers
 {
-    using System;
-    using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Input;
     using Xamarin.Forms;
 
@@ -46,8 +41,8 @@
     /// </summary>
     public class InvokeCommandBinding : BindableObject
     {
-        public static BindableProperty CommandProperty = BindableProperty.Create<InvokeCommandBinding, ICommand>(p => p.Command, null, BindingMode.TwoWay);
-        public static BindableProperty CommandParameterProperty = BindableProperty.Create<InvokeCommandBinding, object>(p => p.CommandParameter, null, BindingMode.TwoWay);
+        public static BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(InvokeCommandBinding), null, BindingMode.TwoWay);
+        public static BindableProperty CommandParameterProperty = BindableProperty.Create("CommandParameter", typeof(object), typeof(InvokeCommandBinding), null, BindingMode.TwoWay);
 
         /// <summary>
         /// Command to be invoked.

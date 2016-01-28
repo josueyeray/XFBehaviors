@@ -1,18 +1,14 @@
 ﻿namespace XFBehaviors.Behaviors
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
     using Xamarin.Forms;
-    using XFBehaviors.Base;
-    using XFBehaviors.Enums;
+    using Base;
+    using Enums;
 
     public class ScaleBehavior : AnimationBaseBehavior
     {
-        public static BindableProperty FinalScaleProperty = BindableProperty.Create<ScaleBehavior, double>(a => a.FinalScale, 1);
-        public static BindableProperty IsRelativeProperty = BindableProperty.Create<ScaleBehavior, bool>(a => a.IsRelative, false);
+        public static BindableProperty FinalScaleProperty = BindableProperty.Create("FinalScale", typeof(double), typeof(ScaleBehavior), 1.0);
+        public static BindableProperty IsRelativeProperty = BindableProperty.Create("IsRelative", typeof(bool), typeof(ScaleBehavior), false);
 
         /// <summary>
         /// Final scale, default: 1

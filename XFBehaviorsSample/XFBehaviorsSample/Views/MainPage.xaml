@@ -72,6 +72,12 @@
         </Entry.Triggers>
       </Entry>
 
+      <!-- EffectBehavior:Adding Behaviors in XAML -->
+      <Label Text="BorderEffect!">
+        <Label.Behaviors>
+          <xfbehaviors:EffectsBehavior EffectsGroupName="DevsDNA" EffectName="BorderEffect"/>
+        </Label.Behaviors>
+      </Label>
     </StackLayout>
   </ScrollView>
 </ContentPage>

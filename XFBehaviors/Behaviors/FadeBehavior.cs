@@ -1,17 +1,12 @@
 ﻿namespace XFBehaviors.Behaviors
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
     using Xamarin.Forms;
-    using XFBehaviors.Base;
-    using XFBehaviors.Enums;
+    using Base;
 
     public class FadeBehavior : AnimationBaseBehavior
     {
-        public static BindableProperty FinalOpacityProperty = BindableProperty.Create<FadeBehavior, double>(a => a.FinalOpacity, 1);
+        public static BindableProperty FinalOpacityProperty = BindableProperty.Create("FinalOpacity", typeof(double), typeof(FadeBehavior), 1.0);
 
         /// <summary>
         /// Final opacity, default: 1

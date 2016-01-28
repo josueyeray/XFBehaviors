@@ -1,17 +1,13 @@
 ﻿namespace XFBehaviors.Base
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
     using Xamarin.Forms;
-    using XFBehaviors.Enums;
+    using Enums;
 
     public class AnimationBaseBehavior : Behavior<View>
     {
-        private static readonly BindableProperty DurationProperty = 
-            BindableProperty.Create<AnimationBaseBehavior, int>(a => a.Duration, 250);
+        private static readonly BindableProperty DurationProperty = BindableProperty.Create<AnimationBaseBehavior, int>(a => a.Duration, 250);
         private static readonly BindableProperty OnEventProperty = BindableProperty.Create<AnimationBaseBehavior, EventTypeEnumerator>(a => a.OnEvent, EventTypeEnumerator.Attached);
         private static readonly BindableProperty EasingMethodProperty = BindableProperty.Create<AnimationBaseBehavior, EasingMethodEnumerator>(a => a.EasingMethod, EasingMethodEnumerator.Linear);
 

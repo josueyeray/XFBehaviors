@@ -1,19 +1,15 @@
 ﻿namespace XFBehaviors.Behaviors
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
     using Xamarin.Forms;
-    using XFBehaviors.Base;
-    using XFBehaviors.Enums;
+    using Base;
+    using Enums;
 
     public class RotateBehavior : AnimationBaseBehavior
     {
-        public static BindableProperty FinalAngleProperty = BindableProperty.Create<RotateBehavior, double>(a => a.FinalAngle, 45);
-        public static BindableProperty IsRelativeProperty = BindableProperty.Create<RotateBehavior, bool>(a => a.IsRelative, false);
-        public static BindableProperty AxisProperty = BindableProperty.Create<RotateBehavior, RotationAxisEnumerator>(a => a.Axis, RotationAxisEnumerator.Z);
+        public static BindableProperty FinalAngleProperty = BindableProperty.Create("FinalAngle", typeof(double), typeof(RotateBehavior), 45.0);
+        public static BindableProperty IsRelativeProperty = BindableProperty.Create("IsRelative", typeof(bool), typeof(RotateBehavior), false);
+        public static BindableProperty AxisProperty = BindableProperty.Create("Axis", typeof(RotationAxisEnumerator), typeof(RotateBehavior), RotationAxisEnumerator.Z);
 
         /// <summary>
         /// Final angle, default: 45

@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Android.App;
+using XFBehaviorsSample.Droid.Effects;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -32,3 +33,5 @@ using Android.App;
 // Add some common permissions, these can be removed if not needed
 [assembly: UsesPermission(Android.Manifest.Permission.Internet)]
 [assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]
+[assembly: Xamarin.Forms.ResolutionGroupName("DevsDNA")]
+[assembly: Xamarin.Forms.ExportEffect(typeof(BorderEffect), "BorderEffect")]
